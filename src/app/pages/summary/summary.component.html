@@ -1,0 +1,16 @@
+<div class="summary">
+    <div>
+        <div id="chart-host"></div>
+        <h2 *ngIf="hasSelected">selected: {{selectedDefects.length}}</h2>
+        <h2>total: {{total}}</h2>
+        <h3>Comment: UI方面需要多检查与mockup的一致性，图标，字体颜色，文字内容，tooltip长度，注意空格
+            对于（较）复杂功能，可以看qe的测试case，开发的时候可以多预估半天的测试时间
+            Mockup 多而杂（出现在多个figma页面，同一页面有多个版本），希望能有个统一的地方。
+        </h3>
+    </div>
+    <div class="defect-list">
+        <div *ngFor="let item of selectedDefects">
+            <a (click)="openUrl(item.url)">{{item.title}}</a> <span *ngIf="item.comment" [title]="item.comment">◔.̮◔✧</span>
+        </div>
+    </div>
+</div>
